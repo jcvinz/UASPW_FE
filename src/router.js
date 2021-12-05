@@ -35,6 +35,18 @@ const router = new VueRouter({
             meta: { title: "Profile" },
         },
         {
+            path: "/editprofile",
+            component: importComponent("EditProfile"),
+            name: "EditProfile",
+            meta: { title: "EditProfile" },
+        },
+        {
+            path: "/orderpaket",
+            component: importComponent("OrderPesanan"),
+            name: "OrderPesanan",
+            meta: { title: "OrderPesanan" },
+        },
+        {
             path: "/cek/:email/:password/:date",
             component: importComponent("CekEmail"),
             name: "CekEmail",

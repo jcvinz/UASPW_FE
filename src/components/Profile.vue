@@ -111,8 +111,6 @@
                     })
                     .then((response) =>{
                         this.error_message = response.data.message;
-                        this.color = "green";
-                        this.snackbar = true;
                         this.load = false;
                         alert("Logout Berhasil !");
                         localStorage.removeItem("id");
@@ -141,8 +139,6 @@
                     }
                 }).then(response => {
                     this.error_message = response.data.message;
-                    this.color = "green";
-                    this.snackbar = true;
                     this.load = false;
                     localStorage.removeItem("id");
                     localStorage.removeItem("token");

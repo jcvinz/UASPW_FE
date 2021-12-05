@@ -97,8 +97,6 @@
                 this.load = false;
               } else {
                 this.error_message = response.data.message;
-                this.color = "green";
-                this.snackbar = true;
                 this.load = false;
                 localStorage.setItem("id", response.data.user.id);
                 localStorage.setItem("token", response.data.access_token);

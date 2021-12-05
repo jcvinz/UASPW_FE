@@ -9,9 +9,9 @@
           class="collapse navbar-collapse justify-content-end"
         >
           <div class="navbar-nav">
-            <a class="nav-link" href="">HOME</a>
-            <a class="nav-link" href="">MENU</a>
-            <a class="nav-link" href="">ABOUT</a>
+            <a class="nav-link" href="#home">HOME</a>
+            <a class="nav-link" href="#menu">MENU</a>
+            <a class="nav-link" href="#about">ABOUT</a>
             <div v-if="cekLogin()=='guest'">
               <router-link class="nav-link" :to="{ path: '/login'}">
                 {{txtLogin}}
@@ -27,14 +27,14 @@
       </div>
     </nav>
 
-    <div class="container-fluid">
+    <div class="container-fluid" id="home">
       <h1 id="taglineText">BEST SEI SAPI IN TOWN</h1>
       <div class="row justify-content-center">
         <img src="../assets/nyapiioutlet.jpg" alt="Gambar Beranda" style="width: 1000px" />
       </div>
     </div>
 
-    <div class="container-fluid mt-10 mb-10" style="width: 1000px">
+    <div class="container-fluid mt-10 mb-10" style="width: 1000px" id="menu">
       <h2 id="subJudul">Let's Take A Look<br>To Some Of Our Menu !</h2>
       <div class="row justify-content-center mb-5" >
         <v-carousel hide-delimiters>
@@ -48,16 +48,16 @@
         </v-carousel>
       </div>
       <div class="row justify-content-center btn" style="width: 1000px">
-        <v-btn block class="white--text mb-5" color="#ce453d" id="txtBtn">
-          ORDER NOW
-        </v-btn>
+            <router-link :to="{ name: 'OrderPesanan' }">
+                <v-btn block color="#ce453d" class="text-white mr-3"> ORDER NOW </v-btn>
+            </router-link>
         <v-btn block class="white--text" color="#ce453d" id="txtBtn">
           TRACK MY ORDER
         </v-btn>
       </div>
     </div>
 
-    <div class="container-fluid" style="width: 1000px">
+    <div class="container-fluid" style="width: 1000px" id="about">
           <div class="row justify-content-center">
             <div class="row justify-content-center m-2" style="text-align: justify">
               <h2 id="subJudul">
