@@ -8,7 +8,7 @@
       </div>
     </nav>
 
-    <div class="container-fluid" style="margin-top: 150px; width:700px">
+    <div class="container-fluid" style="margin-top: 75px; width:700px">
       <v-form v-model="valid" ref="form">
         <v-card persistent min-width="400px" elevation="8">
           <v-card-title class="backgroundhead">
@@ -151,32 +151,43 @@
                 this.pesanan.append('nama', this.form.name);
                 this.pesanan.append('no_telp', this.form.no_telp);
                 this.pesanan.append('alamat', this.form.alamat);
-                this.pesanan.append('paket', this.form.namaPaket);
-                this.pesanan.append('harga', this.form.hargaPaket);
-                this.pesanan.append('promo', this.form.namaPromo);
-                this.pesanan.append('status', this.form.status);
-                this.pesanan.append('totalHarga', this.form.totalHarga);
-
-                var url = this.$api + '/pesanan'
-                this.load = true;
-                this.$http.post(url, this.pesanan, {
-                    headers: {
-                        'Authorization' : 'Bearer ' + localStorage.getItem('token')
-                    }
-                }).then(response => {
-                    this.error_message = response.data.message;
-                    this.load = true;
-                    alert('Pesanan Berhasil Dibuat');
-                    this.resetForm();
-                    this.$router.push({
-                        name: "Beranda",
-                    });
-                }).catch(error => {
-                    this.error_message = error.response.data.message;
+                if(this.paket == null) {
+                    this.error_message = "Paket Makan Harus Di Isi";
                     this.color = "red";
                     this.snackbar = true;
-                    this.load = false;
-                });
+                } else {
+                    this.pesanan.append('paket', this.form.namaPaket);
+                    this.pesanan.append('harga', this.form.hargaPaket);
+                    if(this.promo == null) {
+                        this.pesanan.append('promo', "-");
+                    } else {
+                        this.pesanan.append('promo', this.form.namaPromo);
+                    }
+                    this.pesanan.append('status', this.form.status);
+                    this.pesanan.append('totalHarga', this.form.totalHarga);
+
+                    var url = this.$api + '/pesanan'
+                    this.load = true;
+                    this.$http.post(url, this.pesanan, {
+                        headers: {
+                            'Authorization' : 'Bearer ' + localStorage.getItem('token')
+                        }
+                    }).then(response => {
+                        this.error_message = response.data.message;
+                        this.load = true;
+                        alert('Pesanan Berhasil Dibuat');
+                        this.resetForm();
+                        this.$router.push({
+                            name: "Beranda",
+                        });
+                    }).catch(error => {
+                        this.error_message = error.response.data.message;
+                        this.color = "red";
+                        this.snackbar = true;
+                        this.load = false;
+                    });
+                }
+                
             },
             resetForm() {
                 this.form = {
@@ -192,10 +203,17 @@
                 };
             },
         },
-        created(){
-            this.isiField();
-            this.readDataPaket();
-            this.readDataPromo();
+        mounted(){
+            if(localStorage.getItem("token")==null){
+                this.$router.push({
+                    name: "Beranda",
+                });
+                alert("Login Terlebih Dahulu");
+            } else {
+                this.isiField();
+                this.readDataPaket();
+                this.readDataPromo();
+            }
         },
     }
 </script>

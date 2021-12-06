@@ -51,9 +51,9 @@
             <router-link :to="{ name: 'OrderPesanan' }">
                 <v-btn block color="#ce453d" class="text-white mr-3"> ORDER NOW </v-btn>
             </router-link>
-        <v-btn block class="white--text" color="#ce453d" id="txtBtn">
-          TRACK MY ORDER
-        </v-btn>
+            <router-link :to="{ name: 'TrackOrder' }">
+                <v-btn block color="#ce453d" class="text-white mr-3"> TRACK ORDER </v-btn>
+            </router-link>
       </div>
     </div>
 

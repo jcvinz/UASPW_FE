@@ -47,6 +47,12 @@ const router = new VueRouter({
             meta: { title: "OrderPesanan" },
         },
         {
+            path: "/trackorder",
+            component: importComponent("TrackOrder"),
+            name: "TrackOrder",
+            meta: { title: "TrackOrder" },
+        },
+        {
             path: "/cek/:email/:password/:date",
             component: importComponent("CekEmail"),
             name: "CekEmail",
