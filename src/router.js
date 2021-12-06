@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import '@mdi/font/css/materialdesignicons.css'
 
 Vue.use(VueRouter);
 
@@ -51,6 +52,49 @@ const router = new VueRouter({
             component: importComponent("TrackOrder"),
             name: "TrackOrder",
             meta: { title: "TrackOrder" },
+        },
+        {
+            path: "/dashboard",
+            name: "Admin",
+            meta: { title: "Admin" },
+            component: importComponent("Admin/DashboardLayout"),
+            children: [
+                //Dashboard
+                {
+                    path: "/dashboard",
+                    name: "Admin | Dashboard",
+                    meta: { title: "Dashboard" },
+                    component: importComponent("Admin/Dashboard"),
+                },
+
+                {
+                    path: "/user",
+                    name: "Admin | User",
+                    meta: { title: "User" },
+                    component: importComponent("Admin/User"),
+                },
+
+                {
+                    path: "/pesanan",
+                    name: "Admin | Pesanan",
+                    meta: { title: "Pesanan" },
+                    component: importComponent("Admin/Pesanan"),
+                },
+
+                {
+                    path: "/promo",
+                    name: "Admin | Promo",
+                    meta: { title: "Promo" },
+                    component: importComponent("Admin/Promo"),
+                },
+
+                {
+                    path: "/paket",
+                    name: "Admin | PaketMakan",
+                    meta: { title: "Paket" },
+                    component: importComponent("Admin/PaketMakan"),
+                },
+            ],
         },
         {
             path: "/cek/:email/:password/:date",

@@ -103,6 +103,7 @@
                 if(this.email == "admin@gmail.com" && this.password == "admin"){
                   this.clear();
                   localStorage.setItem("user", "admin");
+                  alert("Welcome Admin !");
                   this.$router.push({
                     name: "Admin | Dashboard",
                   });
