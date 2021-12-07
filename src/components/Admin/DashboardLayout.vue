@@ -1,14 +1,14 @@
 <template>
     <div class="dashboard">
-        <v-navigation-drawer v-model="drawer" class="fullhesight" width="256" app>
-            <v-list-item>
+        <v-navigation-drawer v-model="drawer" class="fullheight" width="256" app>
+            <v-list-item class="titlePart">
                 <v-list-item-content>
                     <v-list-item-title class="title">ADMIN</v-list-item-title>
                 </v-list-item-content>
             </v-list-item>
 
             <v-divider></v-divider>
-            <v-list dense nav>
+            <v-list dense nav class="sidePart">
                 <v-list-item
                 v-for="item in items"
                 :key="item.title"
@@ -22,7 +22,7 @@
                 </v-list-item>
             </v-list>
         </v-navigation-drawer>
-        <v-app-bar app fixed height="63px">
+        <v-app-bar app fixed height="63px" class="header">
             <v-app-bar-icon @click.stop="drawer = !drawer"></v-app-bar-icon>
             <VSpacer/>
             <v-toolbar-items>
@@ -82,11 +82,25 @@ export default {
 };
 </script>
 <style scoped>
+.dashboard {
+    font-family: 'Montserrat', sans-serif;
+}
 .fullheight {
     min-height: 100vh !important;
+}
+.header {
+    background-color: #ce453d !important;
+    font-family: 'Montserrat', sans-serif;
 }
 .router{
     text-decoration: none;
     color: black;
+}
+.sidePart {
+    background-color: #ce453d !important;
+    font-family: 'Montserrat', sans-serif;
+}
+.titlePart {
+    background-color: #ce453d !important;
 }
 </style>
