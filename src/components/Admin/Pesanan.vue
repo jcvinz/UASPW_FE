@@ -69,7 +69,11 @@
         <v-snackbar v-model="snackbar" :color="color" timeout="2000" bottom>{{ error_message }}</v-snackbar>
     </v-main>
 </template>
-
+<style scoped>
+.text-h3 {
+    font-family: 'Montserrat', sans-serif !important;
+}
+</style>
 <script>
     export default {
         name: "List",
@@ -180,12 +184,6 @@
             //UPDATE
             update() {
                 let newData = {
-                    // name : this.form.name,
-                    // no_telp : this.form.no_telp,
-                    // alamat : this.form.alamat,
-                    // paket : this.form.paket,
-                    // harga : this.form.harga,
-                    // promo : this.form.promo,
                     status : this.tempStatus,
                 };
                 var url = this.$api + '/pesanan/status/' + this.editId;

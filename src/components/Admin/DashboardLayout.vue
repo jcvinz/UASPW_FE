@@ -26,7 +26,7 @@
             <v-app-bar-icon @click.stop="drawer = !drawer"></v-app-bar-icon>
             <VSpacer/>
             <v-toolbar-items>
-                <v-btn text router @click="logout"><v-icon>mdi-power</v-icon></v-btn>
+                <v-btn text router @click="logout"><v-icon style="color: #ce453d;">mdi-power</v-icon></v-btn>
             </v-toolbar-items>
         </v-app-bar>
         <div class="fullheight pa-5">
@@ -82,6 +82,7 @@ export default {
 };
 </script>
 <style scoped>
+
 .dashboard {
     font-family: 'Montserrat', sans-serif;
 }
@@ -89,18 +90,16 @@ export default {
     min-height: 100vh !important;
 }
 .header {
-    background-color: #ce453d !important;
+    background-color: #F5F5F5 !important;
     font-family: 'Montserrat', sans-serif;
 }
 .router{
     text-decoration: none;
     color: black;
 }
-.sidePart {
-    background-color: #ce453d !important;
-    font-family: 'Montserrat', sans-serif;
-}
-.titlePart {
-    background-color: #ce453d !important;
+
+.title {
+    font-weight: bold;
+    text-align: center;
 }
 </style>

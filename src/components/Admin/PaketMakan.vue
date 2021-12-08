@@ -1,6 +1,6 @@
 <template>
     <v-main>
-        <h3 class="text-h3" font-wight-medium mb-5>Paket Makan</h3>
+        <h3 class="text-h3" mb-5>Paket Makan</h3>
         
         <v-card>
             <v-card-title>
@@ -59,6 +59,11 @@
     </v-main>
 </template>
 
+<style scoped>
+.text-h3 {
+    font-family: 'Montserrat', sans-serif !important;
+}
+</style>
 <script>
     export default {
         name: "List",

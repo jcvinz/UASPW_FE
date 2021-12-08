@@ -59,7 +59,11 @@
         <v-snackbar v-model="snackbar" :color="color" timeout="2000" bottom>{{ error_message }}</v-snackbar>
     </v-main>
 </template>
-
+<style scoped>
+.text-h3 {
+    font-family: 'Montserrat', sans-serif !important;
+}
+</style>
 <script>
     export default {
         name: "List",
