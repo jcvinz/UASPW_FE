@@ -156,7 +156,7 @@
                 this.pesanan.append('promo', this.form.promo);
                 this.pesanan.append('status', this.form.status);
 
-                var url = this.$api + '/pesanan/'
+                var url = this.$api + '/pesanan'
                 this.load = true;
                 this.$http.post(url, this.pesanan, {
                     headers: {

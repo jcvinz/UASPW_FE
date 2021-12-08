@@ -13,12 +13,12 @@
             <a class="nav-link" href="#menu">MENU</a>
             <a class="nav-link" href="#about">ABOUT</a>
             <div v-if="cekLogin()=='guest'">
-              <router-link class="nav-link" :to="{ path: '/login'}">
+              <router-link id="noDecor" class="nav-link" :to="{ path: '/login'}">
                 {{txtLogin}}
               </router-link>
             </div>
             <div v-else-if="cekLogin()=='user'">
-              <router-link class="nav-link" :to="{ path: '/profile'}">
+              <router-link id="noDecor" class="nav-link" :to="{ path: '/profile' }">
                 {{txtLogin}}
               </router-link>
             </div>
@@ -136,6 +136,9 @@ h1 {
   font-weight: bold;
 }
 
+#noDecor {
+  text-decoration: none;
+}
 #txtBtn {
   font-family: 'Montserrat', sans-serif;
 }
@@ -186,8 +189,16 @@ h1 {
           return 'user';
         }
       },
+      cekAdmin() {
+        if (localStorage.getItem("user") == "admin"){
+          this.$router.push({
+            name: "Admin | Dashboard",
+          });
+        }
+      }
     },
     created() {
+      this.cekAdmin();
       this.cekLogin();
     },
   };

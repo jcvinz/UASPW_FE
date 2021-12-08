@@ -2,7 +2,9 @@
     <v-main>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-xxl"> 
-            <a class="navbar-brand" href="">RESTORAN SEI SAPI</a>
+            <router-link class="navbar-brand" :to="{ name: 'Beranda' }">
+              RESTORAN SEI SAPI
+            </router-link>
         </div>
     </nav>
 
@@ -93,10 +95,8 @@ export default {
           .then((response) => {
             this.error_message = response.data.message;
             this.load = false;
-            localStorage.setItem("id", response.data.user.id);
-            localStorage.setItem("token", response.data.access_token);
             this.clear();
-            alert("Registrasi Berhasil !");
+            alert(response.data.message);
             this.$router.push({
               name: "Login",
             });
@@ -105,7 +105,6 @@ export default {
             this.error_message = error.response.data.message;
             this.color = "red";
             this.snackbar = true;
-            localStorage.removeItem("token");
             this.load = false;
           });
       }

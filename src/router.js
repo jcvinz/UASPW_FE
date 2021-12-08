@@ -95,6 +95,15 @@ const router = new VueRouter({
                     component: importComponent("Admin/PaketMakan"),
                 },
             ],
+            beforeEnter: (to, from, next) => {
+                if (localStorage.getItem("token") == null) {
+                  next("Login");
+                  document.to.meta.title = "Login";
+                } else if (localStorage.getItem("user") != "admin") {
+                  next("/");
+                  document.to.meta.title = "Beranda";
+                } else next();
+              },
         },
         {
             path: "/cek/:email/:password/:date",

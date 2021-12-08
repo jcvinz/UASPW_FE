@@ -112,7 +112,7 @@
                 this.promo.append('namaPromo', this.form.namaPromo);
                 this.promo.append('totalDiskon', this.form.totalDiskon);
 
-                var url = this.$api + '/promo/'
+                var url = this.$api + '/promo'
                 this.load = true;
                 this.$http.post(url, this.promo, {
                     headers: {
